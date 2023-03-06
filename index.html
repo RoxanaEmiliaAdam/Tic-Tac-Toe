@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TicTacToe</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="card">
+      <h1 class="title">TIC-TAC-TOE</h1>
+      <button class="start_gameBtn">Start a New Game Round</button>
+
+      <p>
+        Game Round:
+        <span class="game_round"></span>
+      </p>
+
+      <div class="cell_container">
+        <div id="0" class="cell"></div>
+        <div id="1" class="cell"></div>
+        <div id="2" class="cell"></div>
+        <div id="3" class="cell"></div>
+        <div id="4" class="cell"></div>
+        <div id="5" class="cell"></div>
+        <div id="6" class="cell"></div>
+        <div id="7" class="cell"></div>
+        <div id="8" class="cell"></div>
+      </div>
+      <div class="players_container">
+        <div class="player_X">PLAYER ❌</div>
+        <div class="tie">TIE</div>
+        <div class="player_O">PLAYER ⭕</div>
+      </div>
+      <div class="scores_container">
+        <div class="player_X_score"></div>
+        <div class="tie_score"></div>
+        <div class="player_O_score"></div>
+      </div>
+
+      <h2 class="message"></h2>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

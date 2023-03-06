@@ -1,0 +1,47 @@
+.title {
+  text-align: center;
+}
+.card {
+  text-align: center;
+}
+.cell_container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 306px;
+  margin: 50px auto;
+}
+.cell {
+  width: 100px;
+  height: 80px;
+  box-shadow: 0 0 0 1px orangered;
+  border: 1px solid #333333;
+  line-height: 80px;
+  font-size: 35px;
+  font-style: bold;
+  cursor: pointer;
+}
+.players_container {
+  display: flex;
+  flex-direction: row;
+  gap: 7rem;
+  justify-content: center;
+  font-style: bold;
+  font-style: italic;
+  font-size: 20px;
+}
+.scores_container {
+  display: flex;
+  flex-direction: row;
+  gap: 9rem;
+  justify-content: center;
+  font-style: bold;
+  font-size: 30px;
+}
+.player_active {
+  background-color: rgb(173, 173, 221);
+}
+
+:disabled {
+  cursor: none;
+  background-color: rgb(187, 181, 181);
+}
