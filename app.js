@@ -1,4 +1,6 @@
-// select elements
+"use strict";
+
+// Select Elements
 const container = document.querySelector(".cell_container");
 const startBtn = document.querySelector(".start_gameBtn");
 let playerX = document.querySelector(".player_X");
@@ -9,8 +11,15 @@ const tie = document.querySelector(".tie_score");
 const message = document.querySelector(".message");
 const round = document.querySelector(".game_round");
 
-//
-let winRound, activePlayer, playing;
+// Declare global variables
+let winRound,
+  activePlayer,
+  playing,
+  gamerounds,
+  scorePlayerO,
+  scorePlayerX,
+  scoreTie,
+  playerMoves;
 
 // variable with all possible win combinations
 let winConditions = [
@@ -41,13 +50,15 @@ const displayMessage = function (text) {
   message.textContent = text;
 };
 
-// init function
+// Initialization function
+
 const init = function () {
   // Declare variables
   activePlayer = "❌";
   playing = true;
   // variable with each player's move
   playerMoves = ["", "", "", "", "", "", "", "", ""];
+
   document.querySelectorAll(".cell").forEach((cell) => (cell.innerHTML = ""));
   displayMessage("");
   playerX.classList.add("player_active");
@@ -55,12 +66,12 @@ const init = function () {
 };
 init();
 
-// update final winner
+// Update Final Winner
 const displayFinalWinner = function () {
   if (scorePlayerX > scorePlayerO && scorePlayerX > scoreTie) {
-    displayMessage(`Game Over! Final winner is "❌"`);
+    displayMessage(`Game Over! Final winner is ❌`);
   } else if (scorePlayerO > scorePlayerX && scorePlayerO > scoreTie) {
-    displayMessage(`Game Over! Final winner is "⭕"`);
+    displayMessage(`Game Over! Final winner is ⭕`);
   } else {
     displayMessage(`Game Over! This is a tie!`);
   }
@@ -128,7 +139,7 @@ const checkWinner = function () {
   }
 };
 
-//Switch players
+// Switch Players
 const switchPlayer = function () {
   activePlayer = activePlayer === "❌" ? "⭕" : "❌";
   playerX.classList.toggle("player_active");
@@ -136,6 +147,7 @@ const switchPlayer = function () {
   console.log(`activePlayer is ${activePlayer}`);
 };
 
+// Start Game
 const displayCellClick = function (event) {
   event.stopPropagation();
   if (playing) {
@@ -151,6 +163,7 @@ const displayCellClick = function (event) {
 
     clickedCell.textContent = activePlayer;
     playerMoves[clickedCellIndex] = activePlayer;
+
     clickedCell.classList.add("disabled");
     console.log(clickedCell);
 
@@ -159,7 +172,7 @@ const displayCellClick = function (event) {
   }
 };
 
-// Click Event
+// Click Events
 
 container.addEventListener("click", displayCellClick);
 startBtn.addEventListener("click", init);
