@@ -41,7 +41,7 @@
   background-color: rgb(173, 173, 221);
 }
 
-:disabled {
-  cursor: none;
+.disabled {
+  cursor: auto;
   background-color: rgb(187, 181, 181);
 }

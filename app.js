@@ -60,6 +60,9 @@ const init = function () {
   playerMoves = ["", "", "", "", "", "", "", "", ""];
 
   document.querySelectorAll(".cell").forEach((cell) => (cell.innerHTML = ""));
+  document
+    .querySelectorAll(".cell")
+    .forEach((cell) => cell.classList.remove("disabled"));
   displayMessage("");
   playerX.classList.add("player_active");
   playerO.classList.remove("player_active");
@@ -79,10 +82,11 @@ const displayFinalWinner = function () {
 
 // Update Score and Game Round
 const updateScore = function () {
-  if ((activePlayer = "❌" && winRound)) {
+  console.log(activePlayer);
+  if (activePlayer === "❌" && winRound) {
     scorePlayerX++;
     scoreX.textContent = scorePlayerX;
-  } else if ((activePlayer = "⭕" && winRound)) {
+  } else if (activePlayer === "⭕" && winRound) {
     scorePlayerO++;
     scoreO.textContent = scorePlayerO;
   } else if (tie) {
@@ -157,7 +161,7 @@ const displayCellClick = function (event) {
 
     // check if the clicked cell is empty and add player symbol
 
-    if (playerMoves[clickedCellIndex] !== "" && !playing && isDisabled) {
+    if (isDisabled) {
       return;
     }
 
@@ -168,7 +172,10 @@ const displayCellClick = function (event) {
     console.log(clickedCell);
 
     checkWinner();
-    switchPlayer();
+
+    if (playing) {
+      switchPlayer();
+    }
   }
 };
 
